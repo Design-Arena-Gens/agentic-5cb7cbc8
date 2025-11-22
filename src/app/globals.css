@@ -1,0 +1,67 @@
+:root {
+  --surface: rgba(255, 255, 255, 0.12);
+  --surface-strong: rgba(255, 255, 255, 0.85);
+  --text-primary: #1d1448;
+  --text-secondary: rgba(29, 20, 72, 0.72);
+  --accent: #ff7ac3;
+  --accent-strong: #ff4d8d;
+  --glow-1: rgba(255, 237, 174, 0.45);
+  --glow-2: rgba(144, 108, 255, 0.42);
+  --glow-3: rgba(255, 148, 200, 0.36);
+  --bg: #140e2b;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at 10% 20%, rgba(255, 217, 92, 0.2), transparent 45%),
+    radial-gradient(circle at 80% 10%, rgba(117, 81, 255, 0.24), transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(255, 138, 196, 0.2), transparent 55%),
+    var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-poppins), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 32rem;
+  height: 32rem;
+  filter: blur(140px);
+  opacity: 0.32;
+  z-index: -2;
+  transition: transform 30s linear;
+}
+
+body::before {
+  background: var(--glow-1);
+  top: -12rem;
+  left: -8rem;
+}
+
+body::after {
+  background: var(--glow-2);
+  bottom: -14rem;
+  right: -10rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

@@ -1,0 +1,102 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2.5rem, 6vw, 5.5rem);
+  isolation: isolate;
+}
+
+.page::before,
+.page::after {
+  content: "";
+  position: absolute;
+  width: clamp(16rem, 40vw, 32rem);
+  height: clamp(16rem, 40vw, 32rem);
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.3;
+  z-index: -1;
+  animation: breathe 22s infinite alternate;
+}
+
+.page::before {
+  background: rgba(255, 205, 137, 0.6);
+  top: 2rem;
+  left: 3rem;
+  animation-delay: -4s;
+}
+
+.page::after {
+  background: rgba(138, 117, 255, 0.55);
+  bottom: 2rem;
+  right: 3rem;
+}
+
+.content {
+  width: min(100%, 960px);
+  display: grid;
+  gap: clamp(1.8rem, 4vw, 3rem);
+}
+
+.headlineBlock {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.88);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.headline {
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: var(--font-quicksand), var(--font-poppins), sans-serif;
+}
+
+.subline {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #ffffff;
+  text-shadow: 0 15px 60px rgba(15, 0, 45, 0.6);
+}
+
+.cardSlot {
+  position: relative;
+}
+
+.nebula {
+  position: absolute;
+  inset: 0;
+  filter: blur(80px);
+  opacity: 0.32;
+  z-index: -1;
+  background: conic-gradient(
+    from 140deg at 50% 50%,
+    rgba(255, 201, 121, 0.5),
+    rgba(255, 137, 203, 0.45),
+    rgba(124, 137, 255, 0.5),
+    rgba(255, 201, 121, 0.5)
+  );
+}
+
+@keyframes breathe {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.18);
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .headlineBlock {
+    gap: 0.55rem;
+  }
+}
